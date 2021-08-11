@@ -1,0 +1,70 @@
+{
+  "name": "@samkrew/nestjs-nats-jetstream-transporter",
+  "version": "1.0.0",
+  "description": "NATS JetStream transporter for NestJS",
+  "keywords": [
+    "nestjs",
+    "nats",
+    "microservices",
+    "jetstream",
+    "nats-jetstream",
+    "messaging"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/samkrew/nestjs-nats-jetstream-transporter#readme",
+  "bugs": {
+    "url": "https://github.com/samkrew/nestjs-nats-jetstream-transporter/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samkrew/nestjs-nats-jetstream-transporter.git"
+  },
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "files": [
+    "dist/**/*"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "clean": "rimraf ./dist",
+    "build": "rimraf ./dist && tsc",
+    "test": "jest",
+    "coverage": "jest --coverage",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "lint": "eslint \"{src}/**/*.ts\" --fix",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage",
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+    "postversion": "git push && git push --tags",
+    "prepare": "yarn build",
+    "prepublishOnly": "yarn test && yarn lint",
+    "preversion": "yarn lint",
+    "version": "yarn format && git add -A src"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "^8.0.6",
+    "@nestjs/core": "^8.0.6",
+    "@nestjs/microservices": "^8.0.6",
+    "nats": "^2.1.0",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^7.3.0"
+  },
+  "devDependencies": {
+    "@golevelup/ts-jest": "^0.3.1",
+    "@types/jest": "^27.0.0",
+    "@types/node": "^16.4.14",
+    "@types/supertest": "^2.0.11",
+    "@typescript-eslint/eslint-plugin": "^4.29.1",
+    "@typescript-eslint/parser": "^4.29.1",
+    "jest": "^27.0.6",
+    "prettier": "^2.3.2",
+    "rimraf": "^3.0.2",
+    "supertest": "^6.1.5",
+    "ts-jest": "^27.0.4",
+    "ts-node": "^10.2.0",
+    "tsc": "^2.0.3",
+    "typescript": "^4.3.5"
+  }
+}
